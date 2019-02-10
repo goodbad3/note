@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% from 'bootstrap/form.html' import render_form %}
+
+{% block title %}New Note{% endblock %}
+
+{% block content %}
+<h2>New Note</h2>
+
+<form method="post">
+    {{ render_form(form, action=request.full_path) }}<br>
+</form>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {{ ckeditor.load() }}
+    {{ ckeditor.config(name='body') }}
+{% endblock %}    
